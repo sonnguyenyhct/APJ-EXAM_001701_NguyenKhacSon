@@ -1,6 +1,6 @@
 package model;
 
-public class PhoneBook {
+public class PhoneBook implements Serializable{
     private int id;
     private String phoneNumber;
     private String group;
