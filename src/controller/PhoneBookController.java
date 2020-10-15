@@ -49,11 +49,11 @@ public class PhoneBookController {
             }
         }
         System.out.println("Nhập vào địa chỉ");
-        String address = scanner.nextLine();
+        String address = new Scanner(System.in).nextLine();
         String phoneNumber;
         while (true){
             System.out.println("Nhập vào số điện thoại");
-             phoneNumber = scanner.nextLine();
+             phoneNumber = new Scanner(System.in).nextLine();
             if (!check.checkPhone(phoneNumber)){
                 System.out.println("Nhập sai số điện thoại, nhập lại");
             }else {
@@ -61,12 +61,12 @@ public class PhoneBookController {
             }
         }
         System.out.println("Nhập vào ngày sinh");
-        String birthDay = scanner.nextLine();
+        String birthDay = new Scanner(System.in).nextLine();
 
         String email;
         while (true){
             System.out.println("Nhập vào email");
-            email = scanner.nextLine();
+            email = new Scanner(System.in).nextLine();
             if (!check.checkEmail(email)){
                 System.out.println("Nhập sai email, nhập lại");
             }else {
