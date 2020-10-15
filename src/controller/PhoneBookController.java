@@ -95,7 +95,6 @@ public class PhoneBookController {
                     String group = scanner.nextLine();
                     System.out.println("Nhập vào họ tên mới");
                     String name = scanner.nextLine();
-                    scanner.nextLine();
                     boolean gender;
                     while (true){
                         System.out.println("Chọn giới tính mới : 1. Nam 2. Nữ");
@@ -111,11 +110,11 @@ public class PhoneBookController {
                         }
                     }
                     System.out.println("Nhập vào địa chỉ mới");
-                    String address = scanner.nextLine();
+                    String address = new Scanner(System.in).nextLine();
                     System.out.println("Nhập vào ngày sinh mới");
-                    String birthDay = scanner.nextLine();
+                    String birthDay = new Scanner(System.in).nextLine();
                     System.out.println("Nhập vào email mới");
-                    String email = scanner.nextLine();
+                    String email = new Scanner(System.in).nextLine();
                     phoneBook.setAddress(address);
                     phoneBook.setBirthDay(birthDay);
                     phoneBook.setEmail(email);
@@ -135,7 +134,7 @@ public class PhoneBookController {
         boolean checkDelete = true;
         while (check){
             System.out.println("Nhập vào số điện thoại cần xoá");
-            String number = scanner.nextLine();
+            String number = new Scanner(System.in).nextLine();
             if (number.equals("")){
                 break;
             }
@@ -143,8 +142,8 @@ public class PhoneBookController {
                 if (number.equals(phoneBook.getPhoneNumber())){
                     check = false;
                     System.out.println("Xác nhận muốn xoá : nhập Y để xoá");
-                    String confirm = scanner.nextLine();
-                    if (confirm.equals("Y")){
+                    String confirm = new Scanner(System.in).nextLine();
+                    if (confirm.equals("y")){
                         phoneBookList.remove(phoneBook);
                         System.out.println("Xoá thành công");
                     }else {
@@ -162,11 +161,11 @@ public class PhoneBookController {
     }
     public void findBookPhone(){
         System.out.println("Tìm theo tên nhập 1 - Tìm theo số điện thoại nhập 2");
-        int input = scanner.nextInt();
+        int input = new Scanner(System.in).nextInt();
         boolean check = false;
         if (input == 1){
             System.out.println("Nhập vào tên muốn tìm");
-            String name = scanner.nextLine();
+            String name = new Scanner(System.in).nextLine();
 
             for (PhoneBook phoneBook : phoneBookList) {
                 if (phoneBook.getFullName().contains(name)) {
@@ -179,9 +178,9 @@ public class PhoneBookController {
             }
         }else if (input == 2){
             System.out.println("Nhập vào số điện thoại muốn tìm");
-            String phoneNumber = scanner.nextLine();
+            String phoneNumber = new Scanner(System.in).nextLine();
             for (PhoneBook phoneBook : phoneBookList) {
-                if (phoneBook.getFullName().contains(phoneNumber)) {
+                if (phoneBook.getPhoneNumber().contains(phoneNumber)) {
                     System.out.printf("%d%20s%17s%25s%20s%20s%n",phoneBook.getId(),phoneBook.getGroup(),phoneBook.getFullName(),phoneBook.getGender(),phoneBook.getAddress(),phoneBook.getPhoneNumber());
                     check = true;
                 }
